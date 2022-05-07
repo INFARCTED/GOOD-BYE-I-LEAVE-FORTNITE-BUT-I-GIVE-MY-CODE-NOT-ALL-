@@ -1,0 +1,34 @@
+//BOAT SPEED HACK
+uint64_t VEHICLE_STATS = read<uint64_t>(LocalPawn + FortPlayerPawn::CurrentVehicle);
+write<float>(VEHICLE_STATS + AFortAthenaVehicle::CachedSpeed, Define_options.boatspeedmultiplie);//multiplier run
+write<float>(VEHICLE_STATS + AFortAthenaVehicle::TopSpeedCurrentMultiplier, Define_options.boatspeedmultiplie);//multiplier run
+write<float>(VEHICLE_STATS + AFortAthenaVehicle::PushForceCurrentMultiplier, Define_options.boatspeedmultiplie);//multiplier run
+write<float>(VEHICLE_STATS + AFortAthenaVehicle::WaterEffectsVehicleMaxSpeedKmh, Define_options.boatspeed);//just speed
+
+//AFortAthenaVehicle::CachedSpeed = 0xc64
+//FortSpaghettiVehicle::CacheBoostFX = 0x23C0
+//AFortAthenaVehicle::TopSpeedCurrentMultiplier = 0x8d8
+//AFortAthenaVehicle::PushForceCurrentMultiplier = 0x8dc
+//FortVehicleConfigs::ReverseToForwardMaxSpeed = 0x1bc
+//FortSpaghettiVehicle::BoostSpeedKmh = 0x18E4
+-------------------------------------------------------------------------------------
+//vehicle gravity (fly but is detected)
+write<char>(VEHICLE_STATS + AFortAthenaVehicle::bUseGravity, 0);
+
+//AFortAthenaVehicle::bUseGravity = 0x668
+-------------------------------------------------------------------------------------
+//T-POSE
+uintptr_t mesh = read<uintptr_t>(LocalPawn + 0x2F0);
+write<int>(mesh + SkeletalMeshComponent::bForceRefpose, 1);
+
+//SkeletalMeshComponent::bForceRefpose = 0x9AA
+-------------------------------------------------------------------------------------
+
+
+I CAN GIVE MORE OPTIONS BUT I DON'T HAVE THE TIME SRY...
+
+DISCORD : EFK#6607
+YOUTUBE : EFK
+TWITCH : ZEUSTY__
+TWITTER : EFK
+GITHUB : YouTube-EFK
